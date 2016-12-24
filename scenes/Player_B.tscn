@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sprites/b_otter_spraying.png" type="Texture" id=2]
+
+[node name="Player_B" instance=ExtResource( 1 )]
+
+color = "fish_pile_b"
+
+[node name="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+
+

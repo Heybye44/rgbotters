@@ -18,5 +18,14 @@ func _process(delta):
 	c.g = Globals.get("fish_pile_g")
 	c.b = Globals.get("fish_pile_b")
 	sprite.set_modulate(c)
+	
+	if c == Color(1, 1, 1):
+		reset_colors()
+
+func reset_colors():
+	Globals.set("fish_pile_r", 0)
+	Globals.set("fish_pile_g", 0)
+	Globals.set("fish_pile_b", 0)
+
 
 

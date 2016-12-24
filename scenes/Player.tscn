@@ -1,16 +1,35 @@
 [gd_scene load_steps=3 format=1]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://sprites/r_otter_spraying.png" type="Texture" id=2]
 
 [node name="Player" type="Node2D"]
 
-transform/pos = Vector2( 91.9668, 62.0499 )
 script/script = ExtResource( 1 )
-color = "fish_pile_g"
+color = "fish_pile_r"
 
 [node name="Sprite" type="Sprite" parent="."]
 
+transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
+
+[node name="Thermal_Bar" type="ProgressBar" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -50.0
+margin/top = 60.0
+margin/right = 50.0
+margin/bottom = 76.0
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 1.0
+range/exp_edit = false
+range/rounded = true
+percent/visible = false
 
 

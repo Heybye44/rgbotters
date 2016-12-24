@@ -8,12 +8,14 @@ var currentState = "coloring"
 export var color = "fish_pile_g"
 var action_tint = Color(0, 0, 0)
 var thermal = 10
+var thermal_bar
 var a_button
 var b_button
 
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
+	thermal_bar = get_node("Thermal_Bar")
 	if color == "fish_pile_r":
 		a_button = "r_a_button"
 		b_button = "r_b_button"
@@ -50,7 +52,7 @@ func process_in_coloring(delta):
 		if thermal > 99:
 			incr = 0
 			explode()
-		
+	
 	if Input.is_action_pressed(a_button) and Globals.get(color) < .99:
 		Globals.set(color, Globals.get(color) + incr * delta)
 #		print(Globals.get(color))
@@ -68,6 +70,8 @@ func process_in_coloring(delta):
 			thermal = thermal - incr * delta * 100
 #	print(color + ": ", thermal, "C")
 	
+	thermal_bar.set_value(thermal)
+	
 
 func explode():
 	print("Player: " + color + " exploded")
@@ -76,5 +80,4 @@ func explode():
 func procces_in_dead():
 #	print( color + " died and is still dead")
 	get_node("Sprite").set_modulate(Color(0, 0, 0))
-	get_node("Sprite").translate(Vector2(0, 5))
-	get_node("Sprite").set_scale(Vector2(1, .2))
+	get_node("Sprite").set_scale(Vector2(.2, .1))
